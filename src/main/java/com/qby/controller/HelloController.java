@@ -18,6 +18,7 @@ public class HelloController {
      */
     @RequestMapping("/hello")
     public String hello() {
-        return "/WEB-INF/pages/success.jsp";
+        // 视图解析器自动拼串
+        return "success";
     }
 }
