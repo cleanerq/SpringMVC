@@ -21,4 +21,46 @@ public class RequestMappingTest {
     public String antTest01() {
         return "success";
     }
+
+    /**
+     * ? 能替代任意一个字符，0个多个都不行
+     *      模糊和精确多个匹配情况下，精确优先
+     *
+     * @return
+     */
+    @RequestMapping("/antTest0?")
+    public String antTest02() {
+        return "success";
+    }
+
+    /**
+     * *：能替代任意多个字符，和一层路径
+     *
+     * @return
+     */
+    @RequestMapping("/antTest0*")
+    public String antTest03() {
+        return "success";
+    }
+
+    /**
+     * *：能替代任意多个字符，和一层路径
+     *
+     * @return
+     */
+    @RequestMapping("/a/*/antTest0")
+    public String antTest04() {
+        return "success";
+    }
+
+    /**
+     * **：能替代多层路径
+     *
+     * @return
+     */
+    @RequestMapping("/a/**/antTest0")
+    public String antTest05() {
+        return "success";
+    }
+
 }
