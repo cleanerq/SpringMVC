@@ -30,5 +30,9 @@
 <h1>@CookieValue("JSESSIONID")</h1>
 <a href="handle03">@CookieValue("JSESSIONID")</a>
 
+<h1>数据传到页面测试</h1>
+<a href="data/toTest">数据传到页面测试</a>
+
+
 </body>
 </html>
