@@ -23,29 +23,29 @@ public class RestController {
     @RequestMapping(value = "/book/{bid}", method = RequestMethod.POST)
     public String addBook(@PathVariable("bid") Integer bid) {
         logger.info("增加了{}", bid);
-        return "redirect:/success";
+        return "success";
     }
 
     @RequestMapping(value = "/book/{bid}", method = RequestMethod.DELETE)
     public String deleteBook(@PathVariable("bid") Integer bid) {
         logger.info("删除了{}", bid);
-        return "redirect:/success";
+        return "success";
     }
 
     @RequestMapping(value = "/book/{bid}", method = RequestMethod.PUT)
     public String modifyBook(@PathVariable("bid") Integer bid) {
         logger.info("更新了{}", bid);
-        return "redirect:/success";
+        return "success";
     }
 
     @RequestMapping(value = "/book/{bid}", method = RequestMethod.GET)
     public String queryBook(@PathVariable("bid") Integer bid) {
         logger.info("查询了{}", bid);
-        return "redirect:/success";
-    }
-
-    @RequestMapping("/success")
-    public String success() {
         return "success";
     }
+
+//    @RequestMapping("/success")
+//    public String success() {
+//        return "success";
+//    }
 }
