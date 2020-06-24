@@ -21,6 +21,9 @@
 <h1>PathVariable测试</h1>
 <a href="user/qby232">PathVariable测试</a>
 
+<h1>REST风格的操作</h1>
+<a href="resttest">REST风格的操作</a>
+
 
 </body>
 </html>
