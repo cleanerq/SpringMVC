@@ -11,5 +11,12 @@
 <form action="haha/handle02" method="post">
     <button type="submit">post请求</button>
 </form>
+
+<h1>处理params请求</h1>
+<a href="haha/handle03">处理params请求2</a>
+
+<h1>RequestMapping-ant风格的url</h1>
+<a href="antTest01">RequestMapping-ant风格的url</a>
+
 </body>
 </html>
