@@ -18,5 +18,9 @@
 <h1>RequestMapping-ant风格的url</h1>
 <a href="antTest01">RequestMapping-ant风格的url</a>
 
+<h1>PathVariable测试</h1>
+<a href="user/qby232">PathVariable测试</a>
+
+
 </body>
 </html>

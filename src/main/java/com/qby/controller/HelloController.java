@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class HelloController {
-    Logger logger = LoggerFactory.getLogger(HelloController.class);
+    private Logger logger = LoggerFactory.getLogger(getClass());
     /**
      * / 代表从当前项目开始
      * @return
