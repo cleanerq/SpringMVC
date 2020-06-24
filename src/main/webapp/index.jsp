@@ -24,6 +24,11 @@
 <h1>REST风格的操作</h1>
 <a href="resttest">REST风格的操作</a>
 
+<h1>@RequestParam</h1>
+<a href="handle02?user=ddd">@RequestParam("user")</a>
+
+<h1>@CookieValue("JSESSIONID")</h1>
+<a href="handle03">@CookieValue("JSESSIONID")</a>
 
 </body>
 </html>
