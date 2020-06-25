@@ -9,7 +9,7 @@
 
 pageScope ${pageScope.msg}<br>
 requestScope ${requestScope.msg}<br>
-sessionScope ${sessionScope.msg}<br>
+sessionScope ${sessionScope.msg} ${sessionScope.haha}<br>
 applicationScope ${applicationScope.msg}<br>
 
 

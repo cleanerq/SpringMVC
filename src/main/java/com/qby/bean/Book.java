@@ -6,10 +6,45 @@ package com.qby.bean;
  */
 public class Book {
 
+    private Integer id;
     private String bookName;
     private String author;
     private Double price;
     private Integer stock;
+
+    public Book() {
+    }
+
+    public Book(Integer id, String bookName, String author, Double price, Integer stock, Integer sales) {
+        this.id = id;
+        this.bookName = bookName;
+        this.author = author;
+        this.price = price;
+        this.stock = stock;
+        this.sales = sales;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", bookName='" + bookName + '\'' +
+                ", author='" + author + '\'' +
+                ", price=" + price +
+                ", stock=" + stock +
+                ", sales=" + sales +
+                ", addres=" + addres +
+                '}';
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     private Integer sales;
 
     private Addres addres;
@@ -20,18 +55,6 @@ public class Book {
 
     public void setAddres(Addres addres) {
         this.addres = addres;
-    }
-
-    @Override
-    public String toString() {
-        return "Book{" +
-                "bookName='" + bookName + '\'' +
-                ", author='" + author + '\'' +
-                ", price=" + price +
-                ", stock=" + stock +
-                ", sales=" + sales +
-                ", addres=" + addres +
-                '}';
     }
 
     public String getBookName() {

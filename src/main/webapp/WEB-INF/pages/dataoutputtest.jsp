@@ -21,6 +21,21 @@
 <h1>handle03</h1>
 <a href="/q/data/handle03">handle03</a>
 
+<h1>handle04</h1>
+<a href="/q/data/handle04">handle04</a>
+
+<h1>@ModelAttribute修改图书</h1>
+<form action="/q/updateBook" method="post">
+    <input type="hidden" name="id" value="1">
+    书名：西游记<br>
+    作者：<input type="text" name="author"><br>
+    价格：<input type="text" name="price"><br>
+    库存：<input type="text" name="stock"><br>
+    销量：<input type="text" name="sales"><br>
+    <button type="submit" value="修改图书">修改图书</button>
+
+</form>
+
 </body>
 
 </html>
