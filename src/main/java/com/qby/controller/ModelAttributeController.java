@@ -8,6 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author qby
@@ -27,7 +30,10 @@ public class ModelAttributeController {
      * @return
      */
     @RequestMapping("/updateBook")
-    public String updateBook(@ModelAttribute("haha") Book book, Model model) {
+    public String updateBook(@RequestParam("author") String author,
+            Model model,
+            HttpServletRequest request,
+            @ModelAttribute("haha") Book book) {
         o2 = model;
 
         logger.info(String.valueOf(o1 == o2));

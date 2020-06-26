@@ -22,6 +22,7 @@ public class HelloController {
      */
     @RequestMapping("/hello")
     public String hello() {
+        logger.info("hello方法执行");
         // 视图解析器自动拼串
         return "success";
     }
