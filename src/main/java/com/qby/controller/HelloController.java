@@ -105,4 +105,9 @@ public class HelloController {
         return "redirect:/toHello03";
     }
 
+
+    @RequestMapping("/toLoginPage")
+    public String toLoginPage() {
+        return "login";
+    }
 }

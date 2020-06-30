@@ -33,6 +33,8 @@
 <h1>数据传到页面测试</h1>
 <a href="data/toTest">数据传到页面测试</a>
 
+<h1>去登陆页面</h1>
+<a href="toLoginPage">去登陆页面</a>
 
 </body>
 </html>

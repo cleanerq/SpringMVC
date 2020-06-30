@@ -11,5 +11,12 @@
           class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
         <property name="prefix" value="/WEB-INF/pages/"></property>
         <property name="suffix" value=".jsp"></property>
+<!--        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>-->
+    </bean>
+
+    <!--让spingMVC管理国际化资源文件 配置一个资源文件管理器-->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <!--        指定基础名称-->
+        <property name="basename" value="i18n"></property>
     </bean>
 </beans>
