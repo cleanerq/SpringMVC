@@ -110,4 +110,9 @@ public class HelloController {
     public String toLoginPage() {
         return "login";
     }
+
+    @RequestMapping("/toLoginPageF")
+    public String toLoginPageF() {
+        return "forward:/WEB-INF/pages/login.jsp";
+    }
 }

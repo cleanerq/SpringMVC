@@ -36,5 +36,8 @@
 <h1>去登陆页面</h1>
 <a href="toLoginPage">去登陆页面</a>
 
+<h1>自定义视图解析</h1>
+<a href="handlePlus">下载资源</a>
+
 </body>
 </html>
