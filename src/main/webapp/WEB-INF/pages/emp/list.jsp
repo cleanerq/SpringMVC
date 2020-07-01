@@ -36,11 +36,8 @@
             <td>操作</td>
         </tr>
     </c:forEach>
-
-
-
-
 </table>
+<a href="emp">添加员工</a>
 
 </body>
 </html>

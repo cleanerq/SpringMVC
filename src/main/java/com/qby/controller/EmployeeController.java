@@ -36,7 +36,12 @@ public class EmployeeController {
         return "emp/list";
     }
 
-
+    /**
+     * 去员工添加页面
+     *
+     * @param model
+     * @return
+     */
     @GetMapping("/emp")
     public String toAddPage(Model model) {
         Collection<Department> departments = departmentDao.getDepartments();
@@ -44,7 +49,12 @@ public class EmployeeController {
         return "emp/add";
     }
 
-
+    /**
+     *
+     *
+     * @param employee
+     * @return
+     */
     @PostMapping("/emp")
     public String addEmp(Employee employee) {
         logger.info("插入");
