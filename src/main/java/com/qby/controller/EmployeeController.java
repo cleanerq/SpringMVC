@@ -46,6 +46,7 @@ public class EmployeeController {
     public String toAddPage(Model model) {
         Collection<Department> departments = departmentDao.getDepartments();
         model.addAttribute("depts", departments);
+        model.addAttribute("employee", new Employee());
         return "emp/add";
     }
 
@@ -59,13 +60,14 @@ public class EmployeeController {
     public String addEmp(Employee employee) {
         logger.info("插入");
         employeeDao.save(employee);
+        // 重定向到员工列表
         return "redirect:/emps";
     }
 
     @GetMapping("/emp/{id}")
     public String toEditPage(@PathVariable("id") Integer id, Model model) {
         Employee employee = employeeDao.get(id);
-        model.addAttribute("emp", employee);
+        model.addAttribute("employee", employee);
 
         Collection<Department> departments = departmentDao.getDepartments();
         model.addAttribute("depts", departments);

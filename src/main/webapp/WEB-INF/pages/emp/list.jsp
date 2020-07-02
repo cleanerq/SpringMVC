@@ -33,7 +33,7 @@
             <td>${emp.gender==0?"女":"男"}</td>
             <td>${emp.department.departmentName}</td>
             <td>${emp.birth}</td>
-            <td>操作</td>
+            <td><a href="emp/${emp.id}">修改员工</a></td>
         </tr>
     </c:forEach>
 </table>
