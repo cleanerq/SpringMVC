@@ -71,7 +71,7 @@ public class EmployeeController {
 
         Collection<Department> departments = departmentDao.getDepartments();
         model.addAttribute("depts", departments);
-        return "emp/add";
+        return "emp/edit";
     }
 
     @PutMapping("/emp")
@@ -86,5 +86,13 @@ public class EmployeeController {
         employeeDao.delete(id);
 
         return "redirect:/emps";
+    }
+
+    @ModelAttribute
+    public void myModelAttribute(@RequestParam(value = "id", required = false) Integer id, Model model) {
+        if (id != null) {
+            Employee employee = employeeDao.get(id);
+            model.addAttribute("employee", employee);
+        }
     }
 }
