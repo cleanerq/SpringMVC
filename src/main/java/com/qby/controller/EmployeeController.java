@@ -95,4 +95,18 @@ public class EmployeeController {
             model.addAttribute("employee", employee);
         }
     }
+
+    /**
+     * 发送的请求是什么？
+     * quickAdd?empinfo=empAdmin-admin@qq.com-1-101
+     *
+     * 可以写一个自定义类型转换器让其工作
+     * @param employee
+     * @return
+     */
+    @RequestMapping("/quickAdd")
+    public String quickAdd(@RequestParam("empinfo") Employee employee) {
+        employeeDao.save(employee);
+        return "redirect:/emps";
+    }
 }

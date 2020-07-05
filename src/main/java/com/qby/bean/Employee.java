@@ -13,6 +13,16 @@ public class Employee {
     private Department department;
     private Date birth;
 
+    private String empinfo;
+
+    public String getEmpinfo() {
+        return empinfo;
+    }
+
+    public void setEmpinfo(String empinfo) {
+        this.empinfo = empinfo;
+    }
+
     public Integer getId() {
         return id;
     }
