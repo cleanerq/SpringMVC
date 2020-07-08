@@ -89,7 +89,6 @@ public class Employee {
         this.department = department;
     }
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     public Date getBirth() {
         return birth;
     }
