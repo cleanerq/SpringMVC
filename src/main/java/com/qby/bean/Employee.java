@@ -1,5 +1,7 @@
 package com.qby.bean;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -13,7 +15,7 @@ public class Employee {
 
     private Integer id;
 
-    @Length(min = 6, max = 18)
+    @Length(min = 5, max = 17)
     @NotEmpty
     private String lastName;
 
@@ -21,11 +23,15 @@ public class Employee {
     private String email;
     //1 male, 0 female
     private Integer gender;
+
+    // 不输出json数据
+    @JsonIgnore
     private Department department;
 
     // 规定页面提交的日期格式，@Past 必须是一个过去的时间
     @Past
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date birth;
 
     private String empinfo;
