@@ -30,14 +30,14 @@
     <mvc:view-controller path="toLoginPageMVC" view-name="login"></mvc:view-controller>
 
     <!--    告诉springMVC 自己映射的请求就自己处理，不能处理的请求交给tomcat处理-->
-<!--    <mvc:default-servlet-handler></mvc:default-servlet-handler>-->
+    <mvc:default-servlet-handler></mvc:default-servlet-handler>
 
     <!--    使用自己配置的类型转换组件-->
-<!--    <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>-->
+    <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
 
     <!--    告诉SpringMVC别用默认的ConversionService，而用自定义的ConversionService，-->
     <bean id="conversionService"
-          class="org.springframework.context.support.ConversionServiceFactoryBean">
+          class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
         <!-- 在Converter中添加自定义的类型转换器 -->
         <property name="converters">
             <set>
