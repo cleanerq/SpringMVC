@@ -24,7 +24,6 @@
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <!--        指定基础名称-->
         <property name="basename" value="i18n"></property>
-
     </bean>
     
     <mvc:view-controller path="toLoginPageMVC" view-name="login"></mvc:view-controller>
