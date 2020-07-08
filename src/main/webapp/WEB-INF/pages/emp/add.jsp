@@ -36,6 +36,7 @@
     gender:<br>
         男：<form:radiobutton path="gender" value="1"></form:radiobutton><br>
         女：<form:radiobutton path="gender" value="0"></form:radiobutton><br>
+    birth：<form:input path="birth"></form:input><br>
 <%--    items指定要遍历的集合，每个元素是dept对象，itemLabel指定对象是option的提示信息，itemValue指定对象是option的值--%>
     dept：<form:select path="department.id"
                       items="${depts}" itemLabel="departmentName" itemValue="id"></form:select>

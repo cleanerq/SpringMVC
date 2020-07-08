@@ -36,8 +36,9 @@
     <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
 
     <!--    告诉SpringMVC别用默认的ConversionService，而用自定义的ConversionService，-->
+<!--    自定义类型转换器使用ConversionServiceFactoryBean 来注册 类型转换格式化功能就都有了-->
     <bean id="conversionService"
-          class="org.springframework.context.support.ConversionServiceFactoryBean">
+          class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
         <!-- 在Converter中添加自定义的类型转换器 -->
         <property name="converters">
             <set>
