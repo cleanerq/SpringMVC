@@ -26,7 +26,8 @@
     dept：   <form:select path="department.id" items="${depts}"
                          itemLabel="departmentName"
                          itemValue="id">
-            </form:select>
+            </form:select><br>
+    birth：<form:input path="birth"></form:input>
     <input type="submit" value="提交">
 </form:form>
 </body>
