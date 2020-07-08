@@ -50,8 +50,7 @@ public class EmployeeController {
      */
     @GetMapping("/emp")
     public String toAddPage(Model model) {
-        Collection<Department> departments = departmentDao.getDepartments();
-        model.addAttribute("depts", departments);
+
         model.addAttribute("employee", new Employee());
         return "emp/add";
     }
@@ -91,8 +90,6 @@ public class EmployeeController {
         Employee employee = employeeDao.get(id);
         model.addAttribute("employee", employee);
 
-        Collection<Department> departments = departmentDao.getDepartments();
-        model.addAttribute("depts", departments);
         return "emp/edit";
     }
 
@@ -116,6 +113,9 @@ public class EmployeeController {
             Employee employee = employeeDao.get(id);
             model.addAttribute("employee", employee);
         }
+        // 把共通处理放在 @ModelAttribute里面
+        Collection<Department> departments = departmentDao.getDepartments();
+        model.addAttribute("depts", departments);
     }
 
     /**
