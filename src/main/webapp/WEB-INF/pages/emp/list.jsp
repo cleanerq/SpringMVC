@@ -24,6 +24,7 @@
         <th>gender</th>
         <th>departmentName</th>
         <th>birth</th>
+        <th>salary</th>
         <th>操作</th>
         <th>删除</th>
     </tr>
@@ -35,6 +36,7 @@
             <td>${emp.gender==0?"女":"男"}</td>
             <td>${emp.department.departmentName}</td>
             <td>${emp.birth}</td>
+            <td>${emp.salary}</td>
             <td><a href="emp/${emp.id}">修改员工</a>
             </td>
             <td>

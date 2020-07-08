@@ -10,9 +10,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author qby
@@ -44,24 +50,39 @@ public class EmployeeController {
      */
     @GetMapping("/emp")
     public String toAddPage(Model model) {
-        Collection<Department> departments = departmentDao.getDepartments();
-        model.addAttribute("depts", departments);
+
         model.addAttribute("employee", new Employee());
         return "emp/add";
     }
 
     /**
-     *
-     *
      * @param employee
      * @return
      */
     @PostMapping("/emp")
-    public String addEmp(Employee employee) {
-        logger.info("插入");
-        employeeDao.save(employee);
-        // 重定向到员工列表
-        return "redirect:/emps";
+    public String addEmp(@Valid Employee employee, BindingResult bindingResult, Model model) {
+        // 获取是否有校验错误
+        boolean result = bindingResult.hasErrors();
+        if (result) {
+            List<FieldError> fieldErrors = bindingResult.getFieldErrors();
+            Map<String, Object> map = new HashMap<>();
+            fieldErrors.forEach(bean -> {
+                System.out.println("错误消息提示：" + bean.getDefaultMessage());
+                System.out.println("错误字段：" + bean.getField());
+                System.out.println(bean);
+                System.out.println("------");
+
+                map.put(bean.getField(), bean.getDefaultMessage());
+            });
+            model.addAttribute("errorInfo", map);
+            logger.info("有校验错误！");
+            return "emp/add";
+        } else {
+            logger.info("插入");
+            employeeDao.save(employee);
+            // 重定向到员工列表
+            return "redirect:/emps";
+        }
     }
 
     @GetMapping("/emp/{id}")
@@ -69,8 +90,6 @@ public class EmployeeController {
         Employee employee = employeeDao.get(id);
         model.addAttribute("employee", employee);
 
-        Collection<Department> departments = departmentDao.getDepartments();
-        model.addAttribute("depts", departments);
         return "emp/edit";
     }
 
@@ -94,13 +113,17 @@ public class EmployeeController {
             Employee employee = employeeDao.get(id);
             model.addAttribute("employee", employee);
         }
+        // 把共通处理放在 @ModelAttribute里面
+        Collection<Department> departments = departmentDao.getDepartments();
+        model.addAttribute("depts", departments);
     }
 
     /**
      * 发送的请求是什么？
      * quickAdd?empinfo=empAdmin-admin@qq.com-1-101
-     *
+     * <p>
      * 可以写一个自定义类型转换器让其工作
+     *
      * @param employee
      * @return
      */
