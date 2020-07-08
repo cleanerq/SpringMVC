@@ -31,16 +31,16 @@
 
 <form:form action="${pageContext.request.contextPath}/emp" modelAttribute="employee" method="post">
 <%--    path：1、当做原生的name项 2、自动回显隐含模型中某个对象对应的这个属性的值--%>
-    lastName：<form:input path="lastName"></form:input><br>
-    email：<form:input path="email"></form:input><br>
+    lastName：<form:input path="lastName"></form:input><form:errors path="lastName"></form:errors>${errorInfo.lastName}<br>
+    email：<form:input path="email"></form:input><form:errors path="email"></form:errors>${errorInfo.email}<br>
     gender:<br>
         男：<form:radiobutton path="gender" value="1"></form:radiobutton><br>
         女：<form:radiobutton path="gender" value="0"></form:radiobutton><br>
 <%--    items指定要遍历的集合，每个元素是dept对象，itemLabel指定对象是option的提示信息，itemValue指定对象是option的值--%>
     dept：<form:select path="department.id"
                       items="${depts}" itemLabel="departmentName" itemValue="id"></form:select><br>
-    birth：<form:input path="birth"></form:input>
-    salary:<form:input path="salary"></form:input>
+    birth：<form:input path="birth"></form:input><form:errors path="birth"></form:errors>${errorInfo.birth}<br>
+    salary:<form:input path="salary"></form:input><br>
 
     <input type="submit" value="提交">
 </form:form>

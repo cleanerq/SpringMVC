@@ -1,20 +1,30 @@
 package com.qby.bean;
 
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Past;
 import java.util.Date;
 
 public class Employee {
 
-	private Integer id;
+    private Integer id;
+
+    @Length(min = 6, max = 18)
+    @NotEmpty
     private String lastName;
 
+    @Email
     private String email;
     //1 male, 0 female
     private Integer gender;
     private Department department;
 
+    // 规定页面提交的日期格式，@Past 必须是一个过去的时间
+    @Past
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birth;
 
@@ -87,6 +97,7 @@ public class Employee {
     public void setBirth(Date birth) {
         this.birth = birth;
     }
+
     public Employee(Integer id, String lastName, String email, Integer gender,
                     Department department) {
         super();
@@ -112,6 +123,6 @@ public class Employee {
                 ", birth=" + birth +
                 '}';
     }
-	
-	
+
+
 }
