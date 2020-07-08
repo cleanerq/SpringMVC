@@ -1,6 +1,7 @@
 package com.qby.bean;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
 
 import java.util.Date;
 
@@ -18,6 +19,17 @@ public class Employee {
     private Date birth;
 
     private String empinfo;
+
+    @NumberFormat(pattern = "#,###,###.##")
+    private Double salary;
+
+    public Double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Double salary) {
+        this.salary = salary;
+    }
 
     public String getEmpinfo() {
         return empinfo;
@@ -67,6 +79,7 @@ public class Employee {
         this.department = department;
     }
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     public Date getBirth() {
         return birth;
     }

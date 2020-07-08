@@ -40,6 +40,8 @@
     dept：<form:select path="department.id"
                       items="${depts}" itemLabel="departmentName" itemValue="id"></form:select><br>
     birth：<form:input path="birth"></form:input>
+    salary:<form:input path="salary"></form:input>
+
     <input type="submit" value="提交">
 </form:form>
 </body>
