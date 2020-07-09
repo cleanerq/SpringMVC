@@ -41,8 +41,8 @@ public class AjaxTestController {
      */
     @ResponseBody
     @RequestMapping("/testRequestBody")
-    public String testRequestBody(@RequestBody String body) {
-        System.out.println(body);
+    public String testRequestBody(@RequestBody Employee employee) {
+        System.out.println(employee);
         return  "success";
     }
 }

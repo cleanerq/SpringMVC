@@ -25,16 +25,16 @@
 <script type="text/javascript">
     $("a:first").click(function () {
         var emp = {lastName:"张三", email:"aaa@aa.com", gender:0};
-        alert(typeof emp);
+        // alert(typeof emp);
         var empStr = JSON.stringify(emp);
-        alert(typeof empStr);
-        alert(empStr);
+        // alert(typeof empStr);
+        // alert(empStr);
         // 点击发送ajava请求，请求数据带上json
         $.ajax({
             url : "${pageContext.request.contextPath}/testRequestBody",
-            contextType : "json",
+            contentType : "application/json",
             type :"post",
-            data:emp,
+            data:empStr,
             success:function (data) {
                 alert(data);
             }
