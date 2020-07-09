@@ -1,6 +1,7 @@
 com\qby\controller\EmployeeController.class
 com\qby\dao\EmployeeDao.class
 com\qby\bean\Department.class
+com\qby\controller\AjaxTestController.class
 com\qby\controller\HelloController.class
 com\qby\controller\RequestMappingController.class
 com\qby\bean\Employee.class

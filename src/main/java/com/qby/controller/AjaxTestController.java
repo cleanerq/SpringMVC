@@ -33,12 +33,16 @@ public class AjaxTestController {
     }
 
     /**
-     * @RequestBody 请求体 获取一个请求的请求体
+     * @RequestBody 请求体 获取一个请求的请求体 接收json数据
+     * @ReponseBody 返回json数据
+     * @RequestParam 获得请求值
      * @param body
      * @return
      */
+    @ResponseBody
     @RequestMapping("/testRequestBody")
     public String testRequestBody(@RequestBody String body) {
-        return  null;
+        System.out.println(body);
+        return  "success";
     }
 }
