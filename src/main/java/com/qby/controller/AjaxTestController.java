@@ -12,6 +12,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.net.ssl.HttpsURLConnection;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Collection;
 
 /**
@@ -62,6 +68,33 @@ public class AjaxTestController {
         headers.add("Set-Cookie", "username=hahaha");
 
         ResponseEntity<String> responseEntity = new ResponseEntity<String>(body, headers, HttpStatus.OK);
+        return responseEntity;
+    }
+
+    @RequestMapping("/download")
+    public ResponseEntity<byte[]> download(HttpServletRequest request) {
+        // 得到要下载的文件流
+        ServletContext servletContext = request.getServletContext();
+        String realPath = servletContext.getRealPath("/index.jsp");
+        ResponseEntity<byte[]> responseEntity = null;
+        try {
+            FileInputStream fileInputStream = new FileInputStream(realPath);
+
+            byte[] tmp = new byte[fileInputStream.available()];
+
+            fileInputStream.read(tmp);
+
+            fileInputStream.close();
+            MultiValueMap<String, String> headers = new HttpHeaders();
+
+            headers.set("Content-Disposition", "attachment;filename=indes.jsp");
+             responseEntity = new ResponseEntity<byte[]>(tmp, headers, HttpStatus.OK);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         return responseEntity;
     }
 }
