@@ -1,10 +1,9 @@
 package com.qby.controller;
 
+import com.qby.exception.UserNameNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -22,5 +21,19 @@ public class HandleExceptionController {
         return "success";
     }
 
+    @RequestMapping("handleExcep02")
+    public String handleExcep02(@RequestParam("username") String username) {
+        if ("admin".equals(username)) {
+            System.out.println("登陆失败");
+            throw new UserNameNotFoundException();
+        }
+        System.out.println("登陆成功");
+        return "success";
+    }
 
+    @RequestMapping(value = "/handleExcep03", method = RequestMethod.POST)
+    public String handleExcep03() {
+
+        return "success";
+    }
 }

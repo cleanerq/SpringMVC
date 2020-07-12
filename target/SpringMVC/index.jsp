@@ -41,6 +41,8 @@
 
 <h1>异常处理</h1>
 <a href="${pageContext.request.contextPath}/handleExcep?integer=10">异常处理</a>
+<a href="${pageContext.request.contextPath}/handleExcep02?username=admin">异常处理02</a>
+<a href="${pageContext.request.contextPath}/handleExcep03">异常处理03</a>
 
 </body>
 </html>

@@ -75,4 +75,15 @@
         <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>
     </mvc:interceptors>
 
+    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+<!--        exceptionMappings配置哪些异常去哪些页面-->
+        <property name="exceptionMappings">
+            <props>
+<!--                key异常全类名-->
+                <prop key=""></prop>
+            </props>
+
+        </property>
+    </bean>
+
 </beans>
