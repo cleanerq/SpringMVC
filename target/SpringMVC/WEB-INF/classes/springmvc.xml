@@ -52,4 +52,17 @@
         <property name="defaultEncoding" value="UTF-8"></property>
     </bean>
 
+    <mvc:interceptors>
+        <!--        配置某个拦截器，默认是拦截所有请求的-->
+        <bean class="com.qby.interceptor.MyFirstInterceptor"></bean>
+    </mvc:interceptors>
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--            只拦截特定请求地址-->
+            <mvc:mapping path="/testit"/>
+            <bean class="com.qby.interceptor.MySecondInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
 </beans>

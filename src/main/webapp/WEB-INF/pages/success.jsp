@@ -13,6 +13,6 @@
 </head>
 <body>
 <h1>成功</h1>
-<%System.out.print("ssss");%>
+<%System.out.println("成功");%>
 </body>
 </html>
