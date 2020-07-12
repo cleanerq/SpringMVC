@@ -39,5 +39,8 @@
 <h1>自定义视图解析</h1>
 <a href="handlePlus">下载资源</a>
 
+<h1>异常处理</h1>
+<a href="${pageContext.request.contextPath}/handleExcep?integer=10">异常处理</a>
+
 </body>
 </html>

@@ -26,7 +26,7 @@
         <property name="basename" value="i18n"></property>
     </bean>
     
-    <mvc:view-controller path="toLoginPageMVC" view-name="login"></mvc:view-controller>
+<!--    <mvc:view-controller path="toLoginPageMVC" view-name="login"></mvc:view-controller>-->
 
     <!--    告诉springMVC 自己映射的请求就自己处理，不能处理的请求交给tomcat处理-->
     <mvc:default-servlet-handler></mvc:default-servlet-handler>
@@ -63,6 +63,16 @@
             <mvc:mapping path="/testit"/>
             <bean class="com.qby.interceptor.MySecondInterceptor"></bean>
         </mvc:interceptor>
+    </mvc:interceptors>
+
+
+<!--    自定义区域信息解析器-->
+<!--    <bean id="localeResolver" class="com.qby.locale.MyLocaleResolver"></bean>-->
+<!--    区域信息从session取得-->
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"></bean>
+
+    <mvc:interceptors>
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>
     </mvc:interceptors>
 
 </beans>
