@@ -43,6 +43,6 @@
 <a href="${pageContext.request.contextPath}/handleExcep?integer=10">异常处理</a>
 <a href="${pageContext.request.contextPath}/handleExcep02?username=admin">异常处理02</a>
 <a href="${pageContext.request.contextPath}/handleExcep03">异常处理03</a>
-
+<a href="${pageContext.request.contextPath}/handleExcep04">空指针异常</a>
 </body>
 </html>

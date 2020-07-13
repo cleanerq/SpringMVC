@@ -75,4 +75,18 @@
         <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>
     </mvc:interceptors>
 
+    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+<!--        exceptionMappings配置哪些异常去哪些页面-->
+        <property name="exceptionMappings">
+            <props>
+<!--                key异常全类名 value 是要去的页面视图名-->
+                <prop key="java.lang.IndexOutOfBoundsException">error</prop>
+            </props>
+        </property>
+<!--        指定错误信息取出时使用的key-->
+        <property name="exceptionAttribute" value="ex">
+
+        </property>
+    </bean>
+
 </beans>

@@ -36,4 +36,12 @@ public class HandleExceptionController {
 
         return "success";
     }
+
+    @RequestMapping(value = "/handleExcep04")
+    public String handleExcep04() {
+        String[] str = new String[2];
+
+        System.out.println(str[111]);
+        return "success";
+    }
 }
