@@ -12,7 +12,7 @@
     <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/testRequestBody"
+<form action="${pageContext.request.contextPath}/test01"
       method="post" enctype="multipart/form-data">
     <input name="username" value="tomcat" >
     <input name="password" value="123456">

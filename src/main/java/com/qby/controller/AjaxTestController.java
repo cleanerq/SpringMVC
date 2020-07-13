@@ -3,6 +3,7 @@ package com.qby.controller;
 import com.qby.bean.Employee;
 import com.qby.dao.EmployeeDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,9 +44,11 @@ public class AjaxTestController {
     }
 
     /**
+     * @RequestBody 请求体 获取一个请求的请求体 接收json数据
+     * @ReponseBody 返回json数据
+     * @RequestParam 获得请求值
      * @param body
      * @return
-     * @RequestBody 请求体 获取一个请求的请求体
      */
     @RequestMapping("/testRequestBody")
     public String testRequestBody(@RequestBody String body) {
@@ -55,8 +58,7 @@ public class AjaxTestController {
     /**
      * 将返回数据放在响应体中
      *
-     * @return
-     */
+     * @return */
 //    @ResponseBody
     @RequestMapping("/haha")
     public ResponseEntity<String> haha() {
@@ -96,5 +98,19 @@ public class AjaxTestController {
         }
 
         return responseEntity;
+    }
+
+    /**
+     * 如果参数位置为 HttpEntity 获取到请求头信息
+     * @RequestHeader
+     *
+     * @param obj
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/test01")
+    public String test01(HttpEntity<String> obj) {
+        System.out.println("请求体：" + obj);
+        return "success";
     }
 }
