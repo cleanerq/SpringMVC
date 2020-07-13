@@ -21,6 +21,10 @@
     <input type="submit" value='<fmt:message key="loginBth"/>'>
 </form>
 
+<a href="${pageContext.request.contextPath}/toLoginPageMVC?locale=en_US">英文切换</a>
+<a href="${pageContext.request.contextPath}/toLoginPageMVC?locale=zh_CN">中文切换</a>
 
+<a href="${pageContext.request.contextPath}/toLoginPageMVCSession?locale=en_US">英文切换session</a>
+<a href="${pageContext.request.contextPath}/toLoginPageMVCSession?locale=zh_CN">中文切换session</a>
 </body>
 </html>

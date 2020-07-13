@@ -26,7 +26,7 @@
         <property name="basename" value="i18n"></property>
     </bean>
     
-    <mvc:view-controller path="toLoginPageMVC" view-name="login"></mvc:view-controller>
+<!--    <mvc:view-controller path="toLoginPageMVC" view-name="login"></mvc:view-controller>-->
 
     <!--    告诉springMVC 自己映射的请求就自己处理，不能处理的请求交给tomcat处理-->
     <mvc:default-servlet-handler></mvc:default-servlet-handler>
@@ -43,6 +43,46 @@
             <set>
                 <bean class="com.qby.util.MyStringToEmployeeConverter"></bean>
             </set>
+        </property>
+    </bean>
+
+<!--    id必须是multipartResolver-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="#{1024*1024*20}"></property>
+        <property name="defaultEncoding" value="UTF-8"></property>
+    </bean>
+
+    <mvc:interceptors>
+        <!--        配置某个拦截器，默认是拦截所有请求的-->
+        <bean class="com.qby.interceptor.MyFirstInterceptor"></bean>
+    </mvc:interceptors>
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--            只拦截特定请求地址-->
+            <mvc:mapping path="/testit"/>
+            <bean class="com.qby.interceptor.MySecondInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+
+<!--    自定义区域信息解析器-->
+<!--    <bean id="localeResolver" class="com.qby.locale.MyLocaleResolver"></bean>-->
+<!--    区域信息从session取得-->
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"></bean>
+
+    <mvc:interceptors>
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>
+    </mvc:interceptors>
+
+    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+<!--        exceptionMappings配置哪些异常去哪些页面-->
+        <property name="exceptionMappings">
+            <props>
+<!--                key异常全类名-->
+                <prop key=""></prop>
+            </props>
+
         </property>
     </bean>
 
