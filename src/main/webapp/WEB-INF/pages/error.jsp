@@ -12,6 +12,6 @@
 </head>
 <body>
 出错啦
-错误信息：${ex}
+错误信息：${ex}-${exception}
 </body>
 </html>
